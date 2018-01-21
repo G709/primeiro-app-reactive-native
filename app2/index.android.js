@@ -1,53 +1,42 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React from 'react';
+import { Text, AppRegistry, View } from 'react-native';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+//Formatações
+const Estilos = {
+	principal: {
+		flex: 1, // 1:1 (1 parte de um total de 1)
+		backgroundColor: 'cornflowerblue'
+	},
 
-export default class app2 extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+	topo: {
+		flex: 2, //2:11
+		backgroundColor: 'brown'
+	},
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+	conteudo: {
+		flex: 8, //8:11
+		backgroundColor: 'yellowgreen'
+	},
 
-AppRegistry.registerComponent('app2', () => app2);
+	rodape: {
+		flex: 1, //1:11
+		backgroundColor: 'orangered'
+	}
+};
+
+//Criar componente
+const App = () => {
+
+	const { principal, topo, conteudo, rodape } = Estilos;
+
+	return (
+		<View style={ principal }>
+			<Text style={ topo }>Topo</Text>
+			<Text style={ conteudo }>Conteúdo</Text>
+			<Text style={ rodape }>Rodapé</Text>
+		</View>
+	);
+};
+
+//Renderizar para o dispositivo
+AppRegistry.registerComponent('app2', () => App);
